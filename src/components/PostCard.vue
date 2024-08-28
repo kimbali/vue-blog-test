@@ -14,11 +14,12 @@ defineProps<{ post: Post }>()
       <div class="post-card-content">
         <div>
           <h2>{{ post.title }}</h2>
-
-          <p>{{ post.body.substring(0, 100) }}...</p>
         </div>
 
-        <div>Ver post</div>
+        <div>
+          <p>{{ post.body.substring(0, 100) }}...</p>
+          <p>Ver post</p>
+        </div>
       </div>
     </div>
   </router-link>
@@ -33,8 +34,13 @@ defineProps<{ post: Post }>()
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  height: 100%;
 
   &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     padding: 24px;
   }
 
