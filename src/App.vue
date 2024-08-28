@@ -17,10 +17,10 @@ import NavBar from './components/NavBar.vue'
 <style lang="scss">
 main {
   max-width: 1200px;
-  margin: 0 24px;
+  margin: 0 24px 64px;
 
   @media ($desktop) {
-    margin: 0 auto;
+    margin: 0 auto 64px;
     padding: 0 24px;
   }
 }

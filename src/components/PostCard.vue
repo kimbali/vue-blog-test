@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import RandomImage from './RandomImage.vue'
 
 interface Post {
   id: number
@@ -7,18 +8,23 @@ interface Post {
   body: string
 }
 
-const props = defineProps<{ post: Post }>()
+defineProps<{ post: Post }>()
 </script>
 
 <template>
   <router-link :to="{ name: 'SinglePost', params: { id: post.id } }">
     <div class="post-card">
-      <div>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.body.substring(0, 100) }}...</p>
-      </div>
+      <RandomImage :id="post.id" />
 
-      <div>Ver post</div>
+      <div class="post-card-content">
+        <div>
+          <h2>{{ post.title }}</h2>
+
+          <p>{{ post.body.substring(0, 100) }}...</p>
+        </div>
+
+        <div>Ver post</div>
+      </div>
     </div>
   </router-link>
 </template>
@@ -26,12 +32,16 @@ const props = defineProps<{ post: Post }>()
 <style scoped lang="scss">
 .post-card {
   border: thin solid $secondary;
-  padding: 24px;
-  border-radius: 16px;
+  border-radius: $radius;
   background-color: $content-bg;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+
+  &-content {
+    padding: 24px;
+  }
 
   h2 {
     margin: 0 0 16px;
