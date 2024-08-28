@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import RandomImage from './RandomImage.vue'
-
-interface Post {
-  id: number
-  title: string
-  body: string
-}
+import type { Post } from '@/types/interfaces'
 
 defineProps<{ post: Post }>()
 </script>

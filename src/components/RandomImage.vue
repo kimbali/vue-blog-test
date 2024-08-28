@@ -1,14 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-
-interface ImageData {
-  albumId: number
-  id: number
-  title: string
-  url: string
-  thumbnailUrl: string
-}
+import type { ImageData } from '@/types/interfaces'
 
 const image = ref<ImageData | null>(null)
 const props = defineProps<{ id: number }>()

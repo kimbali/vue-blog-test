@@ -3,13 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 import PostCard from '../components/PostCard.vue'
 import LoaderSpinner from '../components/LoaderSpinner.vue'
-
-interface Post {
-  userId: number
-  id: number
-  title: string
-  body: string
-}
+import type { Post } from '@/types/interfaces'
 
 const posts = ref<Post[]>([])
 const isLoading = ref(true)
