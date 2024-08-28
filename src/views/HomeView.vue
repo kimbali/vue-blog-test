@@ -58,7 +58,7 @@ const changePage = (page: number) => {
 .grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  gap: 8px;
 
   @media ($desktop) {
     grid-template-columns: repeat(4, 1fr);

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted, defineProps } from 'vue'
+import { ref, onMounted, defineProps, computed } from 'vue'
 import axios from 'axios'
 
-const props = defineProps<{ isUser?: boolean }>()
+// Define the props interface
+const props = defineProps<{ isUser?: boolean; isBackground?: boolean }>()
 const userImageUrl = ref<string | null>(null)
 
+// Fetch the image URL based on the props
 onMounted(async () => {
   try {
     if (props.isUser) {
@@ -23,24 +25,46 @@ onMounted(async () => {
     console.error('Error fetching image:', error)
   }
 })
+
+// Compute class names based on props
+const imageClass = computed(() => {
+  return {
+    'user-image': props.isUser,
+    'background-image': props.isBackground
+  }
+})
 </script>
 
 <template>
-  <div v-if="userImageUrl" :class="props.isUser ? 'user-image' : 'random-image'">
-    <img :src="userImageUrl" :alt="props.isUser ? 'User image' : 'Random image'" />
+  <div v-if="userImageUrl" :class="imageClass">
+    <img
+      v-if="!props.isBackground"
+      :src="userImageUrl"
+      :alt="props.isUser ? 'User image' : 'Random image'"
+    />
+    <div
+      v-if="props.isBackground"
+      :style="{ backgroundImage: 'url(' + userImageUrl + ')' }"
+      class="background-image-div"
+    ></div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.random-image {
-  img {
-    height: auto;
-    max-height: 200px;
-    width: 100%;
-  }
+.background-image-div {
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px; /* Optional: for rounded corners */
 }
 
 .user-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
   img {
     border-radius: 50%;
     width: 100px;
