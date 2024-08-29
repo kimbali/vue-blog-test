@@ -4,7 +4,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 <template>
   <div class="loader">
-    <PulseLoader :loading="true" color="#42b983" size="15px" />
+    <PulseLoader :loading="true" color="#8686BF" size="8px" />
   </div>
 </template>
 
@@ -13,6 +13,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 50px;
+  margin-top: 46px;
 }
 </style>

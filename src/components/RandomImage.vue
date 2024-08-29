@@ -29,6 +29,7 @@ onMounted(async () => {
 
 const imageClass = computed(() => {
   return {
+    'random-image': true,
     'banner-image': props.isBanner,
     'user-image': props.isUser,
     'background-image': props.isBackground
@@ -55,6 +56,7 @@ const imageClass = computed(() => {
 .background-image-div {
   width: 100%;
   height: 200px;
+  min-height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,6 +65,7 @@ const imageClass = computed(() => {
 
 .banner-image {
   height: 400px;
+  min-height: 400px;
 
   div {
     border-radius: 0;
@@ -72,14 +75,14 @@ const imageClass = computed(() => {
 }
 
 .user-image {
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
+  width: 112px;
+  height: 112px;
 
   img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 112px;
+    height: 112px;
   }
 }
 </style>

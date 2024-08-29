@@ -2,16 +2,16 @@
 import { useRoute } from 'vue-router'
 import HeroBanner from './components/HeroBanner.vue'
 import NavBar from './components/NavBar.vue'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const route = useRoute()
-const showBanner = route.path === '/'
 </script>
 
 <template>
   <div id="app">
     <NavBar />
 
-    <HeroBanner v-if="showBanner" />
+    <HeroBanner v-if="route.path === '/'" />
 
     <div class="separtor" />
 
