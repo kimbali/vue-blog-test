@@ -55,3 +55,18 @@ button {
     cursor: not-allowed;
   }
 }
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: $primary;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 0;
+  border: thin solid $primary-dec;
+  border-radius: 4px;
+}

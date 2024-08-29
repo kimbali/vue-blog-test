@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import HeroBanner from './components/HeroBanner.vue'
 import NavBar from './components/NavBar.vue'
+
+const route = useRoute()
+const showBanner = route.path === '/'
 </script>
 
 <template>
   <div id="app">
     <NavBar />
 
-    <HeroBanner />
+    <HeroBanner v-if="showBanner" />
 
     <div class="separtor" />
 

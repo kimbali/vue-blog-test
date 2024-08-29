@@ -7,12 +7,12 @@ const route = useRoute()
 <template>
   <nav class="navbar">
     <div class="navbar-container">
-      <RouterLink to="/" class="navbar-brand">EL BLOG</RouterLink>
+      <RouterLink to="/" class="navbar-brand">LOREM BLOG</RouterLink>
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <RouterLink to="/" class="nav-link" :class="{ active: route.name === 'Home' }"
-            >lo último</RouterLink
+          <RouterLink to="/users" class="nav-link" :class="{ active: route.name === 'Home' }"
+            >Encuentra usuarios</RouterLink
           >
         </li>
       </ul>
@@ -27,9 +27,9 @@ const route = useRoute()
   left: 0;
   right: 0;
   width: 100%;
-  background-color: $content-bg;
+  background-color: white;
   padding: 12px 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: $shadow;
   z-index: 1000;
 }
 

@@ -28,10 +28,10 @@ defineProps<{ post: Post }>()
   justify-content: space-between;
   height: 100%;
   padding: 12px;
+  border-radius: $radius-element;
 
   &:hover {
-    background-color: $bg-color-dec;
-    border-radius: $radius-element;
+    box-shadow: $shadow;
   }
 
   &-content {
