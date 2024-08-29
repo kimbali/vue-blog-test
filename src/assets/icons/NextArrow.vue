@@ -1,0 +1,13 @@
+<template>
+  <div class="arrow next-arrow" @click="$emit('click')">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="white"
+      width="42px"
+      height="42px"
+    >
+      <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+    </svg>
+  </div>
+</template>

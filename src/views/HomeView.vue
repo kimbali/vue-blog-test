@@ -41,9 +41,12 @@ const changePage = (page: number) => {
 <template>
   <div>
     <LoaderSpinner v-if="isLoading" />
+    <div v-else>
+      <h1>Lorem ipsum dolor sit amet</h1>
 
-    <div v-else class="grid">
-      <PostCard v-for="post in paginatedPosts" :key="post.id" :post="post" />
+      <div class="grid">
+        <PostCard v-for="post in paginatedPosts" :key="post.id" :post="post" />
+      </div>
     </div>
 
     <div class="pagination">
@@ -59,6 +62,7 @@ const changePage = (page: number) => {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 8px;
+  row-gap: 24px;
 
   @media ($desktop) {
     grid-template-columns: repeat(4, 1fr);

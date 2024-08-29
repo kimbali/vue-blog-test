@@ -30,6 +30,7 @@ const route = useRoute()
   background-color: $content-bg;
   padding: 12px 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .navbar-container {

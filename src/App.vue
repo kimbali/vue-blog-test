@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import HeroBanner from './components/HeroBanner.vue'
 import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
   <div id="app">
     <NavBar />
+
+    <HeroBanner />
 
     <div class="separtor" />
 
@@ -26,6 +29,6 @@ main {
 }
 
 .separtor {
-  margin-top: 102px;
+  margin-top: 64px;
 }
 </style>

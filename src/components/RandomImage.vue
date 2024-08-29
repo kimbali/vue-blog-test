@@ -2,20 +2,21 @@
 import { ref, onMounted, defineProps, computed } from 'vue'
 import axios from 'axios'
 
-// Define the props interface
-const props = defineProps<{ isUser?: boolean; isBackground?: boolean }>()
+const props = defineProps<{
+  isUser?: boolean
+  isBackground?: boolean
+  size?: number
+  isBanner?: boolean
+}>()
 const userImageUrl = ref<string | null>(null)
 
-// Fetch the image URL based on the props
 onMounted(async () => {
   try {
     if (props.isUser) {
-      // Fetch from Random User API
       const response = await axios.get('https://randomuser.me/api')
       userImageUrl.value = response.data.results[0].picture.large
     } else {
-      // Fetch from Lorem Picsum
-      const response = await axios.get('https://picsum.photos/400', {
+      const response = await axios.get(`https://picsum.photos/${props.size || '400'}`, {
         responseType: 'arraybuffer'
       })
       const imageBlob = new Blob([response.data], { type: 'image/jpeg' })
@@ -26,9 +27,9 @@ onMounted(async () => {
   }
 })
 
-// Compute class names based on props
 const imageClass = computed(() => {
   return {
+    'banner-image': props.isBanner,
     'user-image': props.isUser,
     'background-image': props.isBackground
   }
@@ -53,11 +54,21 @@ const imageClass = computed(() => {
 <style scoped lang="scss">
 .background-image-div {
   width: 100%;
-  height: 200px; /* Adjust height as needed */
+  height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 8px; /* Optional: for rounded corners */
+  border-radius: 8px;
+}
+
+.banner-image {
+  height: 400px;
+
+  div {
+    border-radius: 0;
+    width: 100vw;
+    height: 400px;
+  }
 }
 
 .user-image {
