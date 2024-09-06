@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import axios from 'axios'
 import LoaderSpinner from '../components/LoaderSpinner.vue'
 import type { User } from '../types/interfaces'
 import RandomImage from '@/components/RandomImage.vue'
 import MapBox from '@/components/MapBox.vue'
+import { fetchUser } from '@/api'
 
 const route = useRoute()
 const user = ref<User | null>(null)
@@ -14,7 +14,7 @@ const isLoading = ref(true)
 onMounted(async () => {
   const userId = route.params.id
   try {
-    const userResponse = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    const userResponse = await fetchUser(userId)
     user.value = userResponse.data
   } catch (error) {
     console.error('Error fetching user:', error)

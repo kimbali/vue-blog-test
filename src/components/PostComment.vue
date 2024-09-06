@@ -14,7 +14,7 @@ const props = defineProps<{ comment: Comment }>()
 
 <style scoped lang="scss">
 .comment {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 h3 {
@@ -25,6 +25,7 @@ h3 {
 .email {
   color: $secondary;
   text-transform: lowercase;
+  font-weight: bold;
 
   &::first-letter {
     text-transform: lowercase;

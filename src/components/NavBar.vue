@@ -12,8 +12,8 @@ const route = useRoute()
       <ul class="navbar-nav">
         <li class="nav-item">
           <RouterLink to="/users" class="nav-link" :class="{ active: route.name === 'Home' }"
-            >Encuentra usuarios</RouterLink
-          >
+            >Encuentra usuarios
+          </RouterLink>
         </li>
       </ul>
     </div>

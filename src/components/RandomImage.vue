@@ -69,7 +69,7 @@ const imageClass = computed(() => {
 
   div {
     border-radius: 0;
-    width: 100vw;
+    width: 100%;
     height: 400px;
   }
 }

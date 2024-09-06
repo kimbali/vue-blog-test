@@ -1,17 +1,25 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
 import RandomImage from './RandomImage.vue'
 
 const props = defineProps<{
-  title: string
+  title?: string
+  fullWidth?: boolean
 }>()
+
+const imageClass = computed(() => {
+  return {
+    'image-container': true,
+    'full-width': props.fullWidth
+  }
+})
 </script>
 
 <template>
-  <div class="image-container">
+  <div :class="imageClass">
     <RandomImage isBanner isBackground :size="1000" />
 
-    <h2 class="image-title">{{ props.title }}</h2>
+    <h2 v-if="props.title" class="image-title">{{ props.title }}</h2>
   </div>
 </template>
 
@@ -21,6 +29,11 @@ const props = defineProps<{
   padding-top: 53px;
   height: 400px;
   position: relative;
+}
+
+.full-width {
+  width: 100%;
+  padding-top: 0;
 }
 
 .image-title {

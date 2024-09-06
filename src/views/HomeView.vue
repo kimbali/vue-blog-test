@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import axios from 'axios'
+
 import PostCard from '../components/PostCard.vue'
 import LoaderSpinner from '../components/LoaderSpinner.vue'
 import type { Post } from '@/types/interfaces'
+import { fetchPosts } from '@/api'
 
 const posts = ref<Post[]>([])
 const isLoading = ref(true)
@@ -12,7 +13,7 @@ const postsPerPage = 8
 
 onMounted(async () => {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const response = await fetchPosts()
     posts.value = response.data
   } catch (error) {
     console.error('Error fetching posts:', error)
